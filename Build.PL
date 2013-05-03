@@ -5,7 +5,7 @@ use Module::Build;
 my $builder = Module::Build->new(
     module_name         => 'App::Prove::Plugin::TraceUse',
     license             => 'perl',
-    dist_author         => 'Torbjørn Lindahl <torbjorn.lindahl@diagenic.com>',
+    dist_author         => 'Torbjørn Lindahl <torbjorn.lindahl@gmail.com>',
     dist_version_from   => 'lib/App/Prove/Plugin/TraceUse.pm',
     requires => {
                  'Test::More' => 0,

@@ -1,7 +1,7 @@
 {
    "abstract" : "Report all modules used during testing",
    "author" : [
-      "Torbjørn Lindahl <torbjorn.lindahl@diagenic.com>"
+      "Torbjørn Lindahl <torbjorn.lindahl@gmail.com>"
    ],
    "dynamic_config" : 1,
    "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120921",
@@ -44,5 +44,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "v1.0.0"
+   "version" : "v1.0.1"
 }

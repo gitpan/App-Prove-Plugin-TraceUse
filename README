@@ -1,8 +1,8 @@
-App-Prove-Plugin-TraceUse version 0.0.1
+App-Prove-Plugin-TraceUse version 1.0.1
 
 This plugin to prove aims to keep track of any non-core modules
 invoked during testing and report those for easy entry into
-requirement list in Makefile.
+dependency lists in Makefile.PL and Build.PL.
 
 INSTALLATION
 
@@ -23,7 +23,14 @@ Alternatively, to install with Module::Build, you can use the following commands
 
 DEPENDENCIES
 
-None.
+App::Prove
+Test::Perl::Critic
+Test::Pod::Coverage
+Test::Most
+Set::Object
+Test::Pod
+File::Slurp
+Tree::Simple
 
 
 COPYRIGHT AND LICENCE

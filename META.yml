@@ -1,7 +1,7 @@
 ---
 abstract: 'Report all modules used during testing'
 author:
-  - 'Torbjørn Lindahl <torbjorn.lindahl@diagenic.com>'
+  - 'Torbjørn Lindahl <torbjorn.lindahl@gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 0
 configure_requires:
@@ -26,4 +26,4 @@ requires:
   Test::Pod: 1.45
   Test::Pod::Coverage: 1.08
   Tree::Simple: 1.18
-version: v1.0.0
+version: v1.0.1

@@ -3,7 +3,7 @@ package App::Prove::Plugin::TraceUse;
 use warnings;
 use strict;
 
-use version qw/is_lax qv/; our $VERSION = qv('1.0.0');
+use version qw/is_lax qv/; our $VERSION = qv('1.0.1');
 
 use Carp;
 use Tree::Simple;
@@ -444,7 +444,7 @@ Build.PL
 
 =head1 VERSION
 
-This document describes App::Prove::Plugin::TraceUse version 1.0.0
+This document describes App::Prove::Plugin::TraceUse version 1.0.1
 
 
 =head1 SYNOPSIS

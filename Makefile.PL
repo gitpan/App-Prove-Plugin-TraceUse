@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME                => 'App::Prove::Plugin::TraceUse',
-    AUTHOR              => 'Torbjørn Lindahl <torbjorn.lindahl@diagenic.com>',
+    AUTHOR              => 'Torbjørn Lindahl <torbjorn.lindahl@gmail.com>',
     VERSION_FROM        => 'lib/App/Prove/Plugin/TraceUse.pm',
     ABSTRACT_FROM       => 'lib/App/Prove/Plugin/TraceUse.pm',
     PL_FILES            => {},
