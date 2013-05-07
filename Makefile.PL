@@ -17,6 +17,7 @@ WriteMakefile(
                   'Test::Pod'           => '1.45',
                   'File::Slurp'         => '9999.19',
                   'Tree::Simple'        => '1.18',
+                  'Devel::TraceUse'     => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'App-Prove-Plugin-TraceUse-*' },

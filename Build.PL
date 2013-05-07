@@ -18,6 +18,7 @@ my $builder = Module::Build->new(
                  'Test::Pod'           => '1.45',
                  'File::Slurp'         => '9999.19',
                  'Tree::Simple'        => '1.18',
+                 'Devel::TraceUse'     => 0,
     },
     add_to_cleanup      => [ 'App-Prove-Plugin-TraceUse-*' ],
 );

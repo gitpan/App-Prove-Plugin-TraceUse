@@ -3,7 +3,7 @@ package App::Prove::Plugin::TraceUse;
 use warnings;
 use strict;
 
-use version qw/is_lax qv/; our $VERSION = qv('1.0.1');
+use version qw/is_lax qv/; our $VERSION = qv('1.0.2');
 
 use Carp;
 use Tree::Simple;
@@ -12,10 +12,7 @@ use Pod::Perldoc;
 use File::Slurp;
 use Safe;
 
-use Data::Dumper;
-$Data::Dumper::Pad = "# ";
-
-my $pd = Pod::Perldoc->new;
+my $pd;
 
 sub _parse_module_and_version {
 
@@ -78,7 +75,10 @@ sub _system_inc {
     my $negate = shift;
 
     my $s1 = set( @INC );
-    my $s2 = set( ".", split /:/, $ENV{PERL5LIB} );
+
+    my $s2 = set( ".",
+                  (exists($ENV{PERL5LIB}) ? split( ":", $ENV{PERL5LIB}) : ())
+                );
 
     my @i = $negate ? (@$s2) : @{$s1 - $s2};
 
@@ -92,6 +92,8 @@ sub _module_dir {
 
     my @inc = _system_inc;
     my @noninc = _system_inc(1);
+
+    $pd ||= Pod::Perldoc->new;
 
     my $d = $check_noninc ? $pd->searchfor( 1, $mod, @noninc ) : $pd->searchfor( 1, $mod, @inc );
 
@@ -268,9 +270,6 @@ sub _parse_build_pl {
 
     use Term::ANSIColor;
 
-    use Data::Dumper;
-    $Data::Dumper::Pad = "# ";
-
     sub _uniquify_dependencies {
 
         my $self = shift;
@@ -389,8 +388,6 @@ sub _parse_build_pl {
 
         my $trace_use_sub = sub {
 
-            # print Dumper \@_;
-
             my $dt = read_file( $fn );
             my $p = App::Prove::Plugin::TraceUse::_parse_traceuse($dt);
             my $deps = App::Prove::Plugin::TraceUse::_find_dependent_modules($p);
@@ -444,7 +441,7 @@ Build.PL
 
 =head1 VERSION
 
-This document describes App::Prove::Plugin::TraceUse version 1.0.1
+This document describes App::Prove::Plugin::TraceUse version 1.0.2
 
 
 =head1 SYNOPSIS
@@ -452,6 +449,20 @@ This document describes App::Prove::Plugin::TraceUse version 1.0.1
     # Run this module as a plugin to the prove script, ie:
     # cd /your/module/folder
     # prove -l -PTraceUse
+
+    # Will output the following in the end
+    # if dependencies are missing in MakeFile/Build:
+    # (missing deps in red, bad version in yellow)
+    #
+    # [...]
+    # TraceUse report:
+    # Makefile.PL:
+    # 'File::Slurp'         => '9999.19',
+    # 'Tree::Simple'        => '1.18',
+    # Build.PL:
+    # 'File::Slurp'         => '9999.19',
+    # 'Tree::Simple'        => '1.18',
+
 
 =head1 DESCRIPTION
 
@@ -506,14 +517,14 @@ App::Prove::Plugin::TraceUse requires no configuration files or environment vari
 
 =head1 DEPENDENCIES
 
-                  'App::Prove' => '3.15',
-                  'Test::Perl::Critic'  => '1.02',
-                  'Test::Pod::Coverage' => '1.08',
-                  'Test::Most'          => '0.25',
-                  'Set::Object'         => '1.26',
-                  'Test::Pod'           => '1.45',
-                  'File::Slurp'         => '9999.19',
-                  'Tree::Simple'        => '1.18',
+App::Prove
+Test::Perl::Critic
+Test::Pod::Coverage
+Test::Most
+Set::Object
+Test::Pod
+File::Slurp
+Tree::Simple
 
 =head1 INCOMPATIBILITIES
 

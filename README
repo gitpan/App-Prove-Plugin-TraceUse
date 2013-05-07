@@ -1,4 +1,4 @@
-App-Prove-Plugin-TraceUse version 1.0.1
+App-Prove-Plugin-TraceUse version 1.0.2
 
 This plugin to prove aims to keep track of any non-core modules
 invoked during testing and report those for easy entry into

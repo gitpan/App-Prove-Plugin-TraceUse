@@ -20,6 +20,7 @@ cmp_deeply(
             'Test::Pod'           => '1.45',
             'File::Slurp'         => '9999.19',
             'Tree::Simple'        => '1.18',
+            'Devel::TraceUse'     => 0,
            }
            , "found own Build.pl and it parses"
           );
@@ -37,6 +38,7 @@ cmp_deeply(
             'Test::Pod'           => '1.45',
             'File::Slurp'         => '9999.19',
             'Tree::Simple'        => '1.18',
+            'Devel::TraceUse'     => 0,
            }
            , "own Build.pl parses when pointed to"
           );
