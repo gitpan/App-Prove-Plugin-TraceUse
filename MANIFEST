@@ -19,5 +19,7 @@ t/parse_module_and_version.t
 t/check_makefile_pl_for_module.t
 t/sys_inc.t
 t/find_dependent_modules.t
+t/testdata/Build_with_bad_version.PL
+t/testdata/Makefile_with_bad_version.PL
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)

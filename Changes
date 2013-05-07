@@ -1,5 +1,8 @@
 Revision history for App-Prove-Plugin-TraceUse
 
+1.0.3  Tue May  7 23:20:27 CEST 2013
+       Added missing test files to manifest
+
 1.0.2  Tue May  7 15:10:04 CEST 2013
        Better pod and fixed warning related to PERL5LIB
 
